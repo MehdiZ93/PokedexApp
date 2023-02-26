@@ -14,15 +14,19 @@ struct PokemonEvolutionsView: View {
     
     var body: some View {
         VStack {
-            ForEach(pokemonEvolutions, id: \.name) { evolution in
-                let pokemon = pokemonVM.getPokemonByName(name: evolution.name)
-                NavigationLink(destination: PokemonDetailView(pokemon: pokemon!)) {
-                    
-                    Image(uiImage: UIImage(data: try! Data(contentsOf: URL(string: pokemon!.image)!))!)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: dimension, height: dimension)
-                    Text(pokemon!.name)
+            if pokemonEvolutions.count > 0 {
+                ForEach(pokemonEvolutions, id: \.name) { evolution in
+                    let pokemon = pokemonVM.getPokemonByName(name: evolution.name)
+                    if (pokemon != nil) {
+                        NavigationLink(destination: PokemonDetailView(pokemon: pokemon!)) {
+                            
+                            Image(uiImage: UIImage(data: try! Data(contentsOf: URL(string: pokemon!.image)!))!)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: dimension, height: dimension)
+                            Text(pokemon!.name)
+                        }
+                    }
                 }
             }
         }

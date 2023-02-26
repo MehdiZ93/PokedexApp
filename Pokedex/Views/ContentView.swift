@@ -17,6 +17,7 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 Text("\(pokemonVM.filteredPokemonList.count) pokemons")
+                    .font(.subheadline)
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(pokemonVM.filteredPokemonList) { pokemon in
                         NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
