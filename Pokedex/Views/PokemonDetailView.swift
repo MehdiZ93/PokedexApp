@@ -20,7 +20,10 @@ struct PokemonDetailView: View {
                     PokemonTypesView(pokemonType: pokemon.apiTypes)
                     Text("Generation : \(pokemon.apiGeneration)")
                     PokemonStatsView(stats: pokemon.stats)
-                    PokemonEvolutionsView(pokemonEvolutions: pokemon.apiEvolutions)
+                    if pokemon.apiEvolutions.count > 0 {
+                        Text("Evolution de \(pokemon.name.capitalized)")
+                        PokemonEvolutionsView(pokemonEvolutions: pokemon.apiEvolutions)
+                    }
                 }
             }
         }

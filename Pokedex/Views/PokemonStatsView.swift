@@ -24,6 +24,9 @@ struct PokemonStatsView: View {
                 }
             }
         }
+        .padding(.horizontal, 4)
+        .background(Color(.systemGray6))
+        .cornerRadius(12)
     }
 }
 

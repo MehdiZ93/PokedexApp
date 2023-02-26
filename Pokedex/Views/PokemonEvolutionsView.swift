@@ -14,8 +14,8 @@ struct PokemonEvolutionsView: View {
     
     var body: some View {
         VStack {
-            ForEach(pokemonEvolutions, id: \.name) { evoltion in
-                let pokemon = pokemonVM.getPokemonByName(name: evoltion.name)
+            ForEach(pokemonEvolutions, id: \.name) { evolution in
+                let pokemon = pokemonVM.getPokemonByName(name: evolution.name)
                 NavigationLink(destination: PokemonDetailView(pokemon: pokemon!)) {
                     
                     Image(uiImage: UIImage(data: try! Data(contentsOf: URL(string: pokemon!.image)!))!)
