@@ -16,7 +16,7 @@ struct PokemonView: View {
         ZStack {
             VStack(alignment: .leading) {
                 Text(pokemon.name.capitalized)
-                    .font(.subheadline).bold()
+                    .font(.headline).bold()
                     .foregroundColor(.white)
                     .padding(.top, 8)
                     .padding(.leading)
